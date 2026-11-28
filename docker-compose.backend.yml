@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: jansahayak-postgres
+    environment:
+      POSTGRES_DB: jansahayak
+      POSTGRES_USER: jansahayak
+      POSTGRES_PASSWORD: jansahayak123
+      DATABASE_URL=postgresql+psycopg://jansahayak:jansahayak123@db:5432/jansahayak
+    ports: ['5432:5432']
+    volumes: [jansahayak_pgdata:/var/lib/postgresql/data]
+  redis:
+    image: redis:7-alpine
+    container_name: jansahayak-redis
+    ports: ['6379:6379']
+volumes:
+  jansahayak_pgdata:
